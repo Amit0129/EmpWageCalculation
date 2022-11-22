@@ -6,14 +6,16 @@
         public const int IS_FULL_TIME = 2;
         public const int EMP_RATE_PER_HOUR = 20;
         public const int NUM_OF_WORKING_DAY = 20;
+        public const int MAX_HRS_IN_MONTH = 100;
         static void Main(string[] args)
         {
             Console.WriteLine("WelCome To Employee Wage Computation");
 
-            int empHour = 0, empDalyWage = 0, totalMonthWage = 0;
-            //For loop
-            for (int i = 1; i <= NUM_OF_WORKING_DAY; i++)
+            int empHour = 0, totalEmpHour = 0, totalEmpDays = 0;
+
+            while (totalEmpHour < MAX_HRS_IN_MONTH && totalEmpDays < NUM_OF_WORKING_DAY)
             {
+                totalEmpDays++;
                 Random random = new Random();
                 int empCheck = random.Next(0, 3);
 
@@ -29,11 +31,13 @@
                         empHour = 0;
                         break;
                 }
-                empDalyWage = empHour * EMP_RATE_PER_HOUR;
-                totalMonthWage = totalMonthWage + empDalyWage;
-                Console.WriteLine($"Emp Wage Day {i} : {empDalyWage}");
+                totalEmpHour += empHour;
+                Console.WriteLine("Days: " + totalEmpDays + " Emp Hrs : " + empHour);
+                Console.WriteLine("Employee Hour Now Is : " + totalEmpHour);
+
             }
-            Console.WriteLine("Total Wage Of The Month is: " + totalMonthWage);
+            int totalEmplWage = totalEmpHour * EMP_RATE_PER_HOUR;
+            Console.WriteLine("Total EmpWage is : " + totalEmplWage);
         }
     }
 }
