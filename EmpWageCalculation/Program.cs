@@ -7,10 +7,9 @@
         public const int EMP_RATE_PER_HOUR = 20;
         public const int NUM_OF_WORKING_DAY = 20;
         public const int MAX_HRS_IN_MONTH = 100;
-        static void Main(string[] args)
-        {
-            Console.WriteLine("WelCome To Employee Wage Computation");
 
+        public static int conputeEmpWage()
+        {
             int empHour = 0, totalEmpHour = 0, totalEmpDays = 0;
 
             while (totalEmpHour < MAX_HRS_IN_MONTH && totalEmpDays < NUM_OF_WORKING_DAY)
@@ -33,11 +32,18 @@
                 }
                 totalEmpHour += empHour;
                 Console.WriteLine("Days: " + totalEmpDays + " Emp Hrs : " + empHour);
-                Console.WriteLine("Employee Hour Now Is : " + totalEmpHour);
+                
 
             }
             int totalEmplWage = totalEmpHour * EMP_RATE_PER_HOUR;
             Console.WriteLine("Total EmpWage is : " + totalEmplWage);
+            return totalEmplWage;
+            
+        }
+        static void Main(string[] args)
+        {
+            Console.WriteLine("WelCome To Employee Wage Computation");
+            conputeEmpWage();
         }
     }
 }
