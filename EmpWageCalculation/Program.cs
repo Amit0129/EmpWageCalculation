@@ -4,15 +4,15 @@
     {
         public const int IS_PART_TIME = 1;
         public const int IS_FULL_TIME = 2;
-        public const int EMP_RATE_PER_HOUR = 20;
-        public const int NUM_OF_WORKING_DAY = 20;
-        public const int MAX_HRS_IN_MONTH = 100;
+        //public const int EMP_RATE_PER_HOUR = 20;
+        //public const int NUM_OF_WORKING_DAY = 20;
+        //public const int MAX_HRS_IN_MONTH = 100;
 
-        public static int conputeEmpWage()
+        public static int computeEmpWage(string company, int empRatePerHour, int numOfWorkingDay, int maxHourPerMonth)
         {
             int empHour = 0, totalEmpHour = 0, totalEmpDays = 0;
 
-            while (totalEmpHour < MAX_HRS_IN_MONTH && totalEmpDays < NUM_OF_WORKING_DAY)
+            while (totalEmpHour <= maxHourPerMonth && totalEmpDays < numOfWorkingDay)
             {
                 totalEmpDays++;
                 Random random = new Random();
@@ -35,15 +35,17 @@
                 
 
             }
-            int totalEmplWage = totalEmpHour * EMP_RATE_PER_HOUR;
-            Console.WriteLine("Total EmpWage is : " + totalEmplWage);
+            int totalEmplWage = totalEmpHour * empRatePerHour;
+            Console.WriteLine($"Total EmpWage of company {company} is : {totalEmplWage}");
             return totalEmplWage;
             
         }
         static void Main(string[] args)
         {
             Console.WriteLine("WelCome To Employee Wage Computation");
-            conputeEmpWage();
+            computeEmpWage("Reliance",20,20,90);
+            computeEmpWage("DMart",15,17,150);
+
         }
     }
 }
